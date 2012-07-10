@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- <context:component-scan base-package="com.kkcom.mypib.accountsummary.pres" 
+		/> -->
+	<context:component-scan base-package="com.kkcom.mypib.*" />
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.ResourceBundleViewResolver"
+		p:basename="views" />
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource"
+		p:basename="messages" />
+
+	<bean id="loginValidator" class="com.kkcom.mypib.login.pres.validator.LoginValidator" />
+
+	<!-- INJECT DIFFERENT SERVICES FROM MYPIB-SERVICE-CONFIG.XML TO TEST THEM -->
+
+	<bean name="/loginLaunch.htm" class="com.kkcom.mypib.login.pres.LoginController"
+		p:userService-ref="loginServiceHibernate" p:formView="loginLaunch"
+		p:validator-ref="loginValidator" />
+
+
+	<bean
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.Exception">error</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles2.TilesConfigurer"
+		p:definitions="/WEB-INF/tiles-defs.xml" />
+
+</beans>

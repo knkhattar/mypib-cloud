@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+	<appender name="CA" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-4r [%t] %-5p %c %x - %m%n" />
+		</layout>
+	</appender>
+	<appender name="FA" class="org.apache.log4j.FileAppender">
+		<param name="File" value="c:/datakk/logs/sample.log" />
+		<param name="Threshold" value="WARN" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-4r 
+		[%t] %-5p %c %x - %m%n" />
+		</layout>
+	</appender>
+	<appender name="Rolling" class="org.apache.log4j.RollingFileAppender">
+		<param name="file" value="c:/datakk/logs/test.log" />
+		<param name="maxFileSize" value="10000KB" />
+		<param name="maxBackupIndex" value="25" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="[%t] %d{HH:mm:ss,SSS} %-5p %l - %m%n" />
+		</layout>
+	</appender>
+
+
+	<logger name="com.kkcom" additivity="false">
+		<level value="INFO" />
+		<appender-ref ref="CA" />
+		<!-- <appender-ref ref="FA" /> -->
+	</logger>
+	<root>
+		<level value="ERROR" />
+		<appender-ref ref="CA" />
+		<!-- <appender-ref ref="FA" /> -->
+	</root>
+</log4j:configuration>
