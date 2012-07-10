@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="loginService" class="com.kkcom.mypib.login.svc.impl.LoginServiceImpl" />
+
+	<bean id="loginServiceJdbc" class="com.kkcom.mypib.login.svc.impl.LoginServiceImplJdbc" />
+	<bean id="loginServiceCrypto" class="com.kkcom.mypib.login.svc.impl.LoginServiceImplCrypto" />
+	<bean id="loginServiceJndiDs" class="com.kkcom.mypib.login.svc.impl.LoginServiceImplDsJndi" />
+	<bean id="loginServiceDsSpring" class="com.kkcom.mypib.login.svc.impl.LoginServiceImplDsSpring">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<bean id="loginServiceWsSoap" class="com.kkcom.mypib.login.svc.impl.LoginServiceImplJaxWs" />
+	<bean id="loginServiceWsRest" class="com.kkcom.mypib.login.svc.impl.LoginServiceImplJaxRs" />
+
+
+	<bean id="loginServiceHibernate"
+		class="com.kkcom.mypib.login.svc.impl.LoginServiceImplHibernate" />
+
+
+	<!-- Init method needs MQ to be running - <bean id="loginServiceJms" class="com.kkcom.mypib.login.svc.impl.LoginServiceImplJms" 
+		init-method="init" /> -->
+	<!-- <bean id="replier" class="com.kkcom.mypib.login.svc.impl.Replier" init-method="init" 
+		/> -->
+</beans>

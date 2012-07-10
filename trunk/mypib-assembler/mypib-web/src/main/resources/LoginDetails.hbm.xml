@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+<class name="com.kkcom.mypib.login.svc.model.Login" table="LOGINDETAILS">
+	<meta attribute="class-description">
+	This class contains the course details.
+	</meta>
+	<id name="name" type="string" column="USERID">
+	</id>
+	<property name="password" type="string" column="PASSWORD" not-null="true" />
+</class>
+
+</hibernate-mapping>
