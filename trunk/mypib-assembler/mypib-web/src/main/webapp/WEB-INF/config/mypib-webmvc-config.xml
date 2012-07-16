@@ -22,7 +22,7 @@
 	<!-- INJECT DIFFERENT SERVICES FROM MYPIB-SERVICE-CONFIG.XML TO TEST THEM -->
 
 	<bean name="/loginLaunch.htm" class="com.kkcom.mypib.login.pres.LoginController"
-		p:userService-ref="loginServiceHibernate" p:formView="loginLaunch"
+		p:userService-ref="loginService" p:formView="loginLaunch"
 		p:validator-ref="loginValidator" />
 
 
