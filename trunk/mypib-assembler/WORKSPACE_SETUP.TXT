@@ -1,0 +1,11 @@
+.Install jdk 1.6.0.21
+.Install Maven 2.2.1
+.Install Eclipse IDE latest version
+.Install Apache Tomcat Server - 7.0.23
+.Import code
+.Build
+.Run
+
+.Install H2 Database h2-1.3.159.jar
+.Need to run .sql file included in the package
+.Apache ActiveMq - v 5.5.0
