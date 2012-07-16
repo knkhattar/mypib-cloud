@@ -2,57 +2,80 @@ package com.kkcom.loginapp.svc;
 
 import junit.framework.TestCase;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.kkcom.mypib.login.svc.LoginService;
 import com.kkcom.mypib.login.svc.impl.LoginServiceImpl;
 import com.kkcom.mypib.login.svc.impl.LoginServiceImplCrypto;
 import com.kkcom.mypib.login.svc.impl.LoginServiceImplHibernate;
 import com.kkcom.mypib.login.svc.impl.LoginServiceImplJdbc;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class LoginServiceTest extends TestCase {
 
-	LoginService loginService;
+	ApplicationContext context;
+
+	@Override
+	protected void setUp() throws Exception {
+		this.context = new ClassPathXmlApplicationContext(
+				"/WEB-INF/config/mypib-service-config.xml");
+
+	}
 
 	public void testLoginServiceImpl() {
-		loginService = new LoginServiceImpl();
-		authenticate();
+		LoginService loginService = (LoginService) context
+				.getBean("loginService");
+
+		authenticate(loginService);
 	}
 
 	public void testLoginServiceImplHibernate() {
-		loginService = new LoginServiceImplHibernate();
-		authenticate();
+		LoginService loginService = (LoginService) context
+				.getBean("loginServiceHibernate");
+
+		authenticate(loginService);
 	}
 
 	public void testLoginServiceImplCrypto() {
-		loginService = new LoginServiceImplCrypto();
-		authenticate();
+		LoginService loginService = (LoginService) context
+				.getBean("loginServiceCrypto");
+
+		authenticate(loginService);
 
 	}
 
 	public void testLoginServiceImplDsSpring() {
 		// TODO PENDING IMPLEMENTATION
-	}
 
-	public void testLoginServiceImplEjb() {
-		// TODO PENDING IMPLEMENTATION
+		LoginService loginService = (LoginService) context
+				.getBean("loginServiceDsSpring");
+		authenticate(loginService);
+
 	}
 
 	public void testLoginServiceImplJdbc() {
-		loginService = new LoginServiceImplJdbc();
-		authenticate();
+		LoginService loginService = new LoginServiceImplJdbc();
+		authenticate(loginService);
 
 	}
+
+	// public void testLoginServiceImplEjb() {
+	// // TODO PENDING IMPLEMENTATION
+	// }
 
 	public void testLoginServiceImplJms() {
 		// TODO PENDING IMPLEMENTATION
 	}
 
-	public void testLoginServiceImplLdap() {
-		// TODO PENDING IMPLEMENTATION
-	}
+	// public void testLoginServiceImplLdap() {
+	// // TODO PENDING IMPLEMENTATION
+	// }
 
-	public void testLoginServiceImplDsJndi() {
-		// TODO PENDING IMPLEMENTATION
-	}
+	// public void testLoginServiceImplDsJndi() {
+	// // TODO PENDING IMPLEMENTATION
+	// }
 
 	public void testLoginServiceImplJaxWs() {
 		// TODO PENDING IMPLEMENTATION
@@ -62,13 +85,9 @@ public class LoginServiceTest extends TestCase {
 		// TODO PENDING IMPLEMENTATION
 	}
 
-	private void authenticate() {
+	private void authenticate(LoginService loginService) {
 		boolean result = loginService.authenticate("testid", "testpass");
 		assertTrue(result);
 	}
 
-	@Override
-	protected void setUp() throws Exception {
-
-	}
 }
