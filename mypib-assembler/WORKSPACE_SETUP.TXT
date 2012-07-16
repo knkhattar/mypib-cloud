@@ -1,10 +1,17 @@
-.Install jdk 1.6.0.21
-.Install Maven 2.2.1
-.Install Eclipse IDE latest version
-.Install Apache Tomcat Server - 7.0.23
-.Import code
-.Build
-.Run
+1.Install softwares
+	.Install jdk 1.6.0.21
+	.Install Maven 2.2.1
+	.Install Eclipse IDE latest version
+	.Install Apache Tomcat Server - 7.0.23
+2.Eclipse settings
+	  Set jdk instead of jre as java runtime
+	  Install maven plugin
+	  Setup maven path
+	  Make maven offline globally
+	  Avoid console line limit
+3.Import code from repo
+4.Build with maven
+5.Run on server
 
 .Install H2 Database h2-1.3.159.jar
 .Need to run .sql file included in the package
