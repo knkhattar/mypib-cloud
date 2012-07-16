@@ -1,0 +1,31 @@
+*** Storical Requirements ***
+.Create a LDAP service
+.Run JUnit methods (Web Serv, MQ, Ejb)
+
+.Separate Maven projects
+	.Separate service layer as a maven project
+	.Separate web service project
+	.Separate active mq client project
+
+***Check point version (tag as a version ) ***
+,Pres , Spring WebFlow - Contact Details - check double submit
+,Pres, LHN Menu - xml based
+,Design, JRebel with Maven
+,Design, AOP
+,Service, Ejb  
+,Service, LDAP
+,Design, FaceBook integration - YouTube Integration
+,Design, Caching
+,Design, Eclipse EMF
+,Design, Java Mail Api
+,Design, Maven MultiModule Project
+,Design, Front Controller Per module
+,Data ,Database indexing
+,Data ,Normalisation
+,Data ,Defining constrains
+,Data ,Stored procedure
+,Data ,Triggers
+,Data ,Table partitions
+,Data ,Creating views
+,Data ,Connection Pooling
+,Design, Deployment on cluster	
