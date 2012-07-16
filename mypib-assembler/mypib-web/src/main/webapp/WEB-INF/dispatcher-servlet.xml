@@ -5,6 +5,5 @@
 
 
 	<import resource="/config/mypib-webmvc-config.xml" />
-	<import resource="/config/mypib-data-access-config.xml" />
 	<import resource="/config/mypib-service-config.xml" />
 </beans>
