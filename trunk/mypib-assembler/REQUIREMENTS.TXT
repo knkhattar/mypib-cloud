@@ -4,7 +4,7 @@
 
 .Separate Maven projects
 	.Separate service layer as a maven project
-	.Separate web service project
+	.Separate web service project as a new war
 	.Separate active mq client project
 
 ***Check point version (tag as a version ) ***
@@ -29,3 +29,5 @@
 ,Data ,Creating views
 ,Data ,Connection Pooling
 ,Design, Deployment on cluster	
+,Pres, Locale selection and display of hindi text
+,Pres, JSF
