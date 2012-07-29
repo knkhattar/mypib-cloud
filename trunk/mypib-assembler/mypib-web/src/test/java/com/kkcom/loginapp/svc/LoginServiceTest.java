@@ -22,6 +22,9 @@ public class LoginServiceTest extends TestCase {
 		this.context = new ClassPathXmlApplicationContext(
 				"/WEB-INF/config/mypib-service-config.xml");
 
+		// TODO WRITE THE CODE TO START H2 DATABASE AND SETUP DATE IN
+		// IT.
+
 	}
 
 	public void testLoginServiceImpl() {
@@ -61,28 +64,26 @@ public class LoginServiceTest extends TestCase {
 
 	}
 
-	// public void testLoginServiceImplEjb() {
-	// // TODO PENDING IMPLEMENTATION
-	// }
+	public void testLoginServiceImplEjb() {
+		// TODO EJB PENDING IMPLEMENTATION
+	}
 
 	public void testLoginServiceImplJms() {
-		// TODO PENDING IMPLEMENTATION
+		// TODO JMS PENDING IMPLEMENTATION
 	}
 
 	// public void testLoginServiceImplLdap() {
-	// // TODO PENDING IMPLEMENTATION
 	// }
 
 	// public void testLoginServiceImplDsJndi() {
-	// // TODO PENDING IMPLEMENTATION
 	// }
 
 	public void testLoginServiceImplJaxWs() {
-		// TODO PENDING IMPLEMENTATION
+		// TODO JaxWs PENDING IMPLEMENTATION
 	}
 
 	public void testLoginServiceImplJaxRs() {
-		// TODO PENDING IMPLEMENTATION
+		// TODO JaxRs PENDING IMPLEMENTATION
 	}
 
 	private void authenticate(LoginService loginService) {
