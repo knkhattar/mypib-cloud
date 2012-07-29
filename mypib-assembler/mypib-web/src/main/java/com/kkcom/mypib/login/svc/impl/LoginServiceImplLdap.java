@@ -1,13 +1,15 @@
 package com.kkcom.mypib.login.svc.impl;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.util.Hashtable;
+
+import javax.naming.Context;
+import javax.naming.directory.InitialDirContext;
 
 import com.kkcom.mypib.login.svc.LoginService;
 
 public class LoginServiceImplLdap implements LoginService {
+
+	private InitialDirContext ctx;
 
 	public boolean authenticate(String userid, String password) {
 		System.out.println(" Impl:: " + this);
@@ -25,12 +27,12 @@ public class LoginServiceImplLdap implements LoginService {
 			 */
 			env.put(Context.SECURITY_AUTHENTICATION, "DIGEST-MD5");
 
-			env.put(Context.SECURITY_PRINCIPAL, loginId);
-			env.put(Context.SECURITY_CREDENTIALS, passwd);
+			env.put(Context.SECURITY_PRINCIPAL, userid);
+			env.put(Context.SECURITY_CREDENTIALS, password);
 			ctx = new InitialDirContext(env);
 			return true;
 		} catch (Exception ex) {
-			log.print("Authenticating user - " + loginId + " failed");
+			System.out.println("Authenticating user - " + userid + " failed");
 		} finally {
 			if (ctx != null) {
 				try {
