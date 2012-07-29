@@ -10,9 +10,9 @@ public class LoginServiceImplCrypto implements LoginService {
 		System.out.println(" Impl:: " + this);
 		boolean retVal = false;
 		try {
-			if (MyPibUtils.getEncryptedValue(userid).equals(
+			if (MyPibUtils.getEncryptedValue(userid, MyPibConstants.CRYPTO_SEED).equals(
 					MyPibConstants.USERID_ENCRYPTED)
-					&& MyPibUtils.getEncryptedValue(password).equals(
+					&& MyPibUtils.getEncryptedValue(password, MyPibConstants.CRYPTO_SEED).equals(
 							MyPibConstants.PASSWORD_ENCRYPTED)) {
 				retVal = true;
 			}
