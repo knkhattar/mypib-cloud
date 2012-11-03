@@ -1,3 +1,14 @@
+cc-login-javamail
+cc-login-jsf
+cc-login-locale-poc
+
+cc-login-ejb
+cc-login-aop
+cc-facebooktwitter-int
+cc-login-jpa
+cc-login-connpooling
+cc-login-jta-distributed
+
 *** Storical Requirements ***
 .Create a LDAP service
 .Run JUnit methods (Web Serv, MQ, Ejb)
